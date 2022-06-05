@@ -12,6 +12,16 @@ describe('Get Users', () => {
             done();
         })
     })
+
+    // single user
+    it("GET /users/:id", async() => {
+        return request
+        .get(`users/3785?access-token=${process.env.TEST_TOKEN}`)
+        .then((res) => {
+            expect(res.body.id).to.be.equal(3785);
+            expect(res.body).to.not.be.empty;
+        })
+    })
 })
 
 export * as default from "../Users/Users.js";
