@@ -1,0 +1,23 @@
+{
+  "name": "api_automation_testing",
+  "version": "0.0.1",
+  "description": "API Automation testing with supertest chai and moncha",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "CHAI",
+    "MOCHA",
+    "SUPERTEST",
+    "API"
+  ],
+  "author": "Kwis Lawrence Francis",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "supertest": "^6.2.3"
+  },
+  "type": "module"
+}
