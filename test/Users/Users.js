@@ -28,25 +28,31 @@ describe('Get Users', () => {
     });
     
 
-    it("GET /users", (done) => {
-        request
-        .get(`users?access-token=${process.env.TEST_TOKEN}`)
-        .end((err, res) => {
-            console.log(res.body)
-            expect(res.body).to.not.be.empty;
-            done();
+    describe('GET users', async() => {
+        it("/users", (done) => {
+            request
+            .get(`users?access-token=${process.env.TEST_TOKEN}`)
+            .end((err, res) => {
+                console.log(res.body)
+                expect(res.body).to.not.be.empty;
+                done();
+            })
         })
-    })
+    });
+    
 
-    // single user
-    it("GET /users/:id", async() => {
-        return request
-        .get(`users/3785?access-token=${process.env.TEST_TOKEN}`)
-        .then((res) => {
-            expect(res.body.id).to.be.eql(3785);
-            expect(res.body).to.not.be.empty;
+    describe('GET Single User', async() => {
+        // single user
+        it("GET /users/:id", async() => {
+            return request
+            .get(`users/3785?access-token=${process.env.TEST_TOKEN}`)
+            .then((res) => {
+                expect(res.body.id).to.be.eql(3785);
+                expect(res.body).to.not.be.empty;
+            })
         })
-    })
+    });
+    
 
     // single user with query params
     it("GET /users with query params", async() => {
