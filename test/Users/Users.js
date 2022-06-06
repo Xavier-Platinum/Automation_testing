@@ -92,14 +92,17 @@ describe('Get Users', () => {
     
 
     // Deleting a user
-    it('DELETE /users/:id', async () => {
-        return request
-        .delete("/users/4294")
-        .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
-        .then((res) => {
-            expect(res.body).to.be.eql({});
+    describe('DELETE Deleting a user', async() => {
+        it('/users/:id', async () => {
+            return request
+            .delete("/users/4294")
+            .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
+            .then((res) => {
+                expect(res.body).to.be.eql({});
+            })
         })
-    })
+    });
+    
 })
 
 export * as default from "../Users/Users.js";
