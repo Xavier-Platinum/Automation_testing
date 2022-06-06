@@ -56,7 +56,7 @@ describe('Get Users', () => {
 
     describe('GET Users by params', async() => {
         // single user with query params
-        it("GET /users with query params", async() => {
+        it("/users", async() => {
             const URL = `users?access-token=${process.env.TEST_TOKEN}&gender=female&status=active`;
             return request
             .get(URL)
