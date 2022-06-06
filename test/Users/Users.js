@@ -95,7 +95,7 @@ describe('Get Users', () => {
     describe('DELETE Deleting a user', async() => {
         it('/users/:id', async () => {
             return request
-            .delete("/users/4294")
+            .delete(`/users/${user.id}`)
             .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
             .then((res) => {
                 expect(res.body).to.be.eql({});
