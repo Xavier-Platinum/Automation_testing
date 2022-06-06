@@ -3,8 +3,10 @@ const request = supertest("https://gorest.co.in/public/v2/"); // API requests
 
 import { expect } from "chai"; // assertion library
 
+let user = [];
+export {user};
+
 describe('Users', () => {
-    let user;
     
     // optimizing tests
     describe('POST', async() => {
@@ -22,7 +24,7 @@ describe('Users', () => {
             .send(data)
             .then((res) => {
                 expect(res.body).to.deep.include(data);
-                user = res.body;
+                // user = res.body;
             })
         })
     });
@@ -35,6 +37,9 @@ describe('Users', () => {
                 .get(`users?access-token=${process.env.TEST_TOKEN}`)
                 .end((err, res) => {
                     expect(res.body).to.not.be.empty;
+                    res.body.forEach((data) => {
+                        user.push(data)
+                    })
                     done();
                 })
             })
@@ -45,9 +50,10 @@ describe('Users', () => {
             // single user
             it("/users/:id", async() => {
                 return request
-                .get(`users/${user.id}?access-token=${process.env.TEST_TOKEN}`)
+                .get(`users/${user[0].id}`)
+                .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
                 .then((res) => {
-                    expect(res.body.id).to.be.eql(user.id);
+                    expect(res.body.id).to.be.eql(user[0].id);
                     expect(res.body).to.not.be.empty;
                 })
             })
@@ -83,7 +89,7 @@ describe('Users', () => {
             }
     
             return request
-            .put(`/users/${user.id}`)
+            .put(`/users/${user[0].id}`)
             .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
             .send(data)
             .then((res) => {
@@ -97,7 +103,7 @@ describe('Users', () => {
     describe('DELETE Deleting a user', async() => {
         it('/users/:id', async () => {
             return request
-            .delete(`/users/${user.id}`)
+            .delete(`/users/${user[0].id}`)
             .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
             .then((res) => {
                 expect(res.body).to.be.eql({});
@@ -106,5 +112,4 @@ describe('Users', () => {
     });
     
 })
-
 export * as default from "../Users/Users.js";
