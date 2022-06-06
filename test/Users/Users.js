@@ -73,20 +73,23 @@ describe('Get Users', () => {
     
 
     // Updating a user
-    it('PUT /users/:id', async() => {
-        const data ={
-            status: "active",
-            name: `The-Law-${Math.floor(Math.random() * 9999)}`
-        }
-
-        return request
-        .put('/users/4308')
-        .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
-        .send(data)
-        .then((res) => {
-            expect(res.body).to.deep.include(data);
+    describe('PUT Updating a user', async() => {
+        it('/users/:id', async() => {
+            const data ={
+                status: "active",
+                name: `The-Law-${Math.floor(Math.random() * 9999)}`
+            }
+    
+            return request
+            .put('/users/4308')
+            .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
+            .send(data)
+            .then((res) => {
+                expect(res.body).to.deep.include(data);
+            })
         })
-    })
+    });
+    
 
     // Deleting a user
     it('DELETE /users/:id', async () => {
