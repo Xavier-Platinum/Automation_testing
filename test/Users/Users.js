@@ -37,6 +37,23 @@ describe('Get Users', () => {
             });
         })
     })
+
+    // Creating a user
+    it('POST /users', async() => {
+        const data = {
+            email: `bencher_${Math.floor(Math.random()*12)}@nigeria.com`,
+            name: "Bencher",
+            gender: "male",
+            status: "active"
+        };
+        return request
+        .post("users")
+        .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
+        .send(data)
+        .then((res) => {
+            expect(res.body).to.deep.includes(data);
+        })
+    })
 })
 
 export * as default from "../Users/Users.js";
