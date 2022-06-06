@@ -22,6 +22,21 @@ describe('Get Users', () => {
             expect(res.body).to.not.be.empty;
         })
     })
+
+    // single user with query params
+    it("GET /users with query params", async() => {
+        const URL = `users?access-token=${process.env.TEST_TOKEN}&gender=female&status=active`;
+        return request
+        .get(URL)
+        .then((res) => {
+            expect(res.body).to.not.be.empty;
+            // looping through to verify params
+            res.body.forEach(data => {
+                expect(data.gender).to.equal("female");
+                expect(data.status).to.equal("active");
+            });
+        })
+    })
 })
 
 export * as default from "../Users/Users.js";
