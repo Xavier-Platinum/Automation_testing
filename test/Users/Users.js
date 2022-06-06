@@ -83,7 +83,7 @@ describe('Users', () => {
             }
     
             return request
-            .put('/users/4308')
+            .put(`/users/${user.id}`)
             .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
             .send(data)
             .then((res) => {
