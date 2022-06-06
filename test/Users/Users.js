@@ -3,7 +3,7 @@ const request = supertest("https://gorest.co.in/public/v2/"); // API requests
 
 import { expect } from "chai"; // assertion library
 
-describe('Get Users', () => {
+describe('Users', () => {
     let user;
     
     // optimizing tests
@@ -28,48 +28,50 @@ describe('Get Users', () => {
     });
     
 
-    describe('GET users', async() => {
-        it("/users", (done) => {
-            request
-            .get(`users?access-token=${process.env.TEST_TOKEN}`)
-            .end((err, res) => {
-                console.log(res.body)
-                expect(res.body).to.not.be.empty;
-                done();
+    describe('GET Requests', async() => {
+        describe('users', async() => {
+            it("/users", (done) => {
+                request
+                .get(`users?access-token=${process.env.TEST_TOKEN}`)
+                .end((err, res) => {
+                    expect(res.body).to.not.be.empty;
+                    done();
+                })
             })
-        })
+        });
+        
+    
+        describe('Single User', async() => {
+            // single user
+            it("/users/:id", async() => {
+                return request
+                .get(`users/3785?access-token=${process.env.TEST_TOKEN}`)
+                .then((res) => {
+                    expect(res.body.id).to.be.eql(3785);
+                    expect(res.body).to.not.be.empty;
+                })
+            })
+        });
+        
+    
+        describe('Users by params', async() => {
+            // single user with query params
+            it("/users", async() => {
+                const URL = `users?access-token=${process.env.TEST_TOKEN}&gender=female&status=active`;
+                return request
+                .get(URL)
+                .then((res) => {
+                    expect(res.body).to.not.be.empty;
+                    // looping through to verify params
+                    res.body.forEach(data => {
+                        expect(data.gender).to.eql("female");
+                        expect(data.status).to.eql("active");
+                    });
+                })
+            })
+        });
     });
     
-
-    describe('GET Single User', async() => {
-        // single user
-        it("GET /users/:id", async() => {
-            return request
-            .get(`users/3785?access-token=${process.env.TEST_TOKEN}`)
-            .then((res) => {
-                expect(res.body.id).to.be.eql(3785);
-                expect(res.body).to.not.be.empty;
-            })
-        })
-    });
-    
-
-    describe('GET Users by params', async() => {
-        // single user with query params
-        it("/users", async() => {
-            const URL = `users?access-token=${process.env.TEST_TOKEN}&gender=female&status=active`;
-            return request
-            .get(URL)
-            .then((res) => {
-                expect(res.body).to.not.be.empty;
-                // looping through to verify params
-                res.body.forEach(data => {
-                    expect(data.gender).to.eql("female");
-                    expect(data.status).to.eql("active");
-                });
-            })
-        })
-    });
     
 
     // Updating a user
