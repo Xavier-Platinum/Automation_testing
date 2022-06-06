@@ -47,7 +47,7 @@ describe('Users', () => {
                 return request
                 .get(`users/${user.id}?access-token=${process.env.TEST_TOKEN}`)
                 .then((res) => {
-                    expect(res.body.id).to.be.eql(3785);
+                    expect(res.body.id).to.be.eql(user.id);
                     expect(res.body).to.not.be.empty;
                 })
             })
