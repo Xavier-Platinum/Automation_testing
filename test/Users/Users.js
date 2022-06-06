@@ -8,6 +8,7 @@ describe('Get Users', () => {
         request
         .get(`users?access-token=${process.env.TEST_TOKEN}`)
         .end((err, res) => {
+            console.log(res.body)
             expect(res.body).to.not.be.empty;
             done();
         })
@@ -18,7 +19,7 @@ describe('Get Users', () => {
         return request
         .get(`users/3785?access-token=${process.env.TEST_TOKEN}`)
         .then((res) => {
-            expect(res.body.id).to.be.equal(3785);
+            expect(res.body.id).to.be.eql(3785);
             expect(res.body).to.not.be.empty;
         })
     })
@@ -32,8 +33,8 @@ describe('Get Users', () => {
             expect(res.body).to.not.be.empty;
             // looping through to verify params
             res.body.forEach(data => {
-                expect(data.gender).to.equal("female");
-                expect(data.status).to.equal("active");
+                expect(data.gender).to.eql("female");
+                expect(data.status).to.eql("active");
             });
         })
     })
@@ -68,6 +69,16 @@ describe('Get Users', () => {
         .send(data)
         .then((res) => {
             expect(res.body).to.deep.include(data);
+        })
+    })
+
+    // Deleting a user
+    it('DELETE /users/:id', async () => {
+        return request
+        .delete("/users/4294")
+        .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
+        .then((res) => {
+            expect(res.body).to.be.eql({});
         })
     })
 })
