@@ -4,7 +4,7 @@
   "description": "API Automation testing with supertest chai and moncha",
   "main": "app.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --timeout 5000",
     "jest": "jest"
   },
   "keywords": [
