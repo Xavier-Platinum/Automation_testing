@@ -4,9 +4,12 @@ const request = supertest("https://gorest.co.in/public/v2/"); // API requests
 import { expect } from "chai"; // assertion library
 import { user } from "../Users/Users.js";
 
+let posts = [];
+export {posts}
+
 describe('Posts', () => {
 
-    describe('POST', () => {
+    describe('POST Requests', () => {
         // create post
         describe('Create Post', () => {
             it('/posts', async () => {
@@ -24,7 +27,23 @@ describe('Posts', () => {
         });
         
     });
-    
+
+    describe('GET Requests', async() => {
+        // get all posts
+        describe('Get all posts', async() => {
+            it('/posts', async () => {
+                await request
+                .get("posts")
+                .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
+                .then(async(res) => {
+                    expect(res.body).to.not.be.empty;
+                    res.body.forEach(data => {
+                        posts.push(data);
+                    });
+                })
+            })
+        });
+    });
 });
 
 
