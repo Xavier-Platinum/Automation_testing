@@ -4,6 +4,30 @@ const request = supertest("https://gorest.co.in/public/v2/"); // API requests
 import { expect } from "chai"; // assertion library
 
 describe('Get Users', () => {
+    let user;
+    
+    // optimizing tests
+    describe('POST', async() => {
+        // Creating a user
+        it('/users', async() => {
+            const data = {
+                email: `bencher_${Math.floor(Math.random()*9999)}@nigeria.com`,
+                name: "Bencher",
+                gender: "male",
+                status: "active"
+            };
+            return request
+            .post("users")
+            .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
+            .send(data)
+            .then((res) => {
+                expect(res.body).to.deep.include(data);
+                user = res.body;
+            })
+        })
+    });
+    
+
     it("GET /users", (done) => {
         request
         .get(`users?access-token=${process.env.TEST_TOKEN}`)
@@ -36,23 +60,6 @@ describe('Get Users', () => {
                 expect(data.gender).to.eql("female");
                 expect(data.status).to.eql("active");
             });
-        })
-    })
-
-    // Creating a user
-    it('POST /users', async() => {
-        const data = {
-            email: `bencher_${Math.floor(Math.random()*9999)}@nigeria.com`,
-            name: "Bencher",
-            gender: "male",
-            status: "active"
-        };
-        return request
-        .post("users")
-        .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
-        .send(data)
-        .then((res) => {
-            expect(res.body).to.deep.include(data);
         })
     })
 
