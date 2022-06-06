@@ -54,20 +54,23 @@ describe('Get Users', () => {
     });
     
 
-    // single user with query params
-    it("GET /users with query params", async() => {
-        const URL = `users?access-token=${process.env.TEST_TOKEN}&gender=female&status=active`;
-        return request
-        .get(URL)
-        .then((res) => {
-            expect(res.body).to.not.be.empty;
-            // looping through to verify params
-            res.body.forEach(data => {
-                expect(data.gender).to.eql("female");
-                expect(data.status).to.eql("active");
-            });
+    describe('GET Users by params', async() => {
+        // single user with query params
+        it("GET /users with query params", async() => {
+            const URL = `users?access-token=${process.env.TEST_TOKEN}&gender=female&status=active`;
+            return request
+            .get(URL)
+            .then((res) => {
+                expect(res.body).to.not.be.empty;
+                // looping through to verify params
+                res.body.forEach(data => {
+                    expect(data.gender).to.eql("female");
+                    expect(data.status).to.eql("active");
+                });
+            })
         })
-    })
+    });
+    
 
     // Updating a user
     it('PUT /users/:id', async() => {
