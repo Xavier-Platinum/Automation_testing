@@ -41,7 +41,7 @@ describe('Get Users', () => {
     // Creating a user
     it('POST /users', async() => {
         const data = {
-            email: `bencher_${Math.floor(Math.random()*12)}@nigeria.com`,
+            email: `bencher_${Math.floor(Math.random()*9999)}@nigeria.com`,
             name: "Bencher",
             gender: "male",
             status: "active"
@@ -51,7 +51,23 @@ describe('Get Users', () => {
         .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
         .send(data)
         .then((res) => {
-            expect(res.body).to.deep.includes(data);
+            expect(res.body).to.deep.include(data);
+        })
+    })
+
+    // Updating a user
+    it('PUT /users/:id', async() => {
+        const data ={
+            status: "active",
+            name: `The-Law-${Math.floor(Math.random() * 9999)}`
+        }
+
+        return request
+        .put('/users/4308')
+        .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
+        .send(data)
+        .then((res) => {
+            expect(res.body).to.deep.include(data);
         })
     })
 })
