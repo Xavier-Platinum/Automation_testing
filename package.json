@@ -16,6 +16,7 @@
   "author": "Kwis Lawrence Francis",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^7.2.0",
     "chai": "^4.3.6",
     "dotenv": "^16.0.1",
     "jest": "^28.1.0",

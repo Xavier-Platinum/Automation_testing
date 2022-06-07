@@ -1,4 +1,5 @@
 import {request} from "../../config/common.js";
+import {faker} from "@faker-js/faker";
 
 import { expect } from "chai"; // assertion library
 import { user } from "../Users/Users.js";
@@ -14,8 +15,8 @@ describe('Posts', () => {
             it('/posts', async () => {
                 const data = {
                     user_id: user[3].id,
-                    title: `New Post Title`,
-                    body: "The Post was created successfully"
+                    title: faker.lorem.sentence(),
+                    body: faker.lorem.paragraphs()
                 }
                 const res = await request
                 .post("posts")
