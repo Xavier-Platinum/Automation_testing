@@ -1,5 +1,4 @@
-import supertest from "supertest";
-const request = supertest("https://gorest.co.in/public/v2/"); // API requests
+import {request} from "../../config/common.js";
 
 import { expect } from "chai"; // assertion library
 import { user } from "../Users/Users.js";
