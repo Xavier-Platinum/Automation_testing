@@ -1,0 +1,623 @@
+{
+  "stats": {
+    "suites": 18,
+    "tests": 11,
+    "passes": 11,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-06-07T07:49:56.453Z",
+    "end": "2022-06-07T07:50:07.416Z",
+    "duration": 10963,
+    "testsRegistered": 11,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "72c948b2-d45a-493e-bb30-8608382ac9cb",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c59eeb89-7631-4637-a5b8-54dbb9a778eb",
+          "title": "Users",
+          "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+          "file": "/test/index.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "42caa3f7-6462-4e1d-abdf-29ddc3b402f9",
+              "title": "POST Requests",
+              "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+              "file": "/test/index.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "/users",
+                  "fullTitle": "Users POST Requests /users",
+                  "timedOut": false,
+                  "duration": 1189,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const data = {\n    email: `bencher_${Math.floor(Math.random()*9999)}@nigeria.com`,\n    name: \"Bencher\",\n    gender: \"male\",\n    status: \"active\"\n};\nreturn request\n.post(\"users\")\n.set(\"Authorization\", `Bearer ${process.env.TEST_TOKEN}`)\n.send(data)\n.then((res) => {\n    expect(res.body).to.deep.include(data);\n    // user = res.body;\n})",
+                  "err": {},
+                  "uuid": "e7d02132-dc4b-4ac4-8405-d2e3a4f7c678",
+                  "parentUUID": "42caa3f7-6462-4e1d-abdf-29ddc3b402f9",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e7d02132-dc4b-4ac4-8405-d2e3a4f7c678"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1189,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "d40efbf7-5096-4ccd-8c72-ccc553eacf5c",
+              "title": "GET Requests",
+              "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+              "file": "/test/index.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [],
+              "suites": [
+                {
+                  "uuid": "2fdf038c-736c-4842-bdc5-1246980dc771",
+                  "title": "users",
+                  "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+                  "file": "/test/index.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "/users",
+                      "fullTitle": "Users GET Requests users /users",
+                      "timedOut": false,
+                      "duration": 948,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "request\n.get(`users?access-token=${process.env.TEST_TOKEN}`)\n.end((err, res) => {\n    expect(res.body).to.not.be.empty;\n    res.body.forEach((data) => {\n        user.push(data)\n    })\n    done();\n})",
+                      "err": {},
+                      "uuid": "9cec26a1-1df6-4c31-b86c-831a30a74e2c",
+                      "parentUUID": "2fdf038c-736c-4842-bdc5-1246980dc771",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "9cec26a1-1df6-4c31-b86c-831a30a74e2c"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 948,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 5000
+                },
+                {
+                  "uuid": "7bbe7dc5-966e-40ce-91d9-c59c953464b5",
+                  "title": "Single User",
+                  "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+                  "file": "/test/index.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "/users/:id",
+                      "fullTitle": "Users GET Requests Single User /users/:id",
+                      "timedOut": false,
+                      "duration": 959,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "return request\n.get(`users/${user[0].id}`)\n.set(\"Authorization\", `Bearer ${process.env.TEST_TOKEN}`)\n.then((res) => {\n    expect(res.body.id).to.be.eql(user[0].id);\n    expect(res.body).to.not.be.empty;\n})",
+                      "err": {},
+                      "uuid": "d1bbfc82-faa1-4a00-8fff-3294e4ea7318",
+                      "parentUUID": "7bbe7dc5-966e-40ce-91d9-c59c953464b5",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "d1bbfc82-faa1-4a00-8fff-3294e4ea7318"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 959,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 5000
+                },
+                {
+                  "uuid": "bb6d36f6-cdab-4bb1-abe8-5e5240263842",
+                  "title": "Users by params",
+                  "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+                  "file": "/test/index.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "/users",
+                      "fullTitle": "Users GET Requests Users by params /users",
+                      "timedOut": false,
+                      "duration": 1037,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "const URL = `users?access-token=${process.env.TEST_TOKEN}&gender=female&status=active`;\nreturn request\n.get(URL)\n.then((res) => {\n    expect(res.body).to.not.be.empty;\n    // looping through to verify params\n    res.body.forEach(data => {\n        expect(data.gender).to.eql(\"female\");\n        expect(data.status).to.eql(\"active\");\n    });\n})",
+                      "err": {},
+                      "uuid": "6a4b8102-0694-4dfc-8c5a-6e8e834050bb",
+                      "parentUUID": "bb6d36f6-cdab-4bb1-abe8-5e5240263842",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "6a4b8102-0694-4dfc-8c5a-6e8e834050bb"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 1037,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 5000
+                }
+              ],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "5b70f4a0-2161-4a3b-a8f4-1cb339887d01",
+              "title": "PUT Updating a user",
+              "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+              "file": "/test/index.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "/users/:id",
+                  "fullTitle": "Users PUT Updating a user /users/:id",
+                  "timedOut": false,
+                  "duration": 969,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const data ={\n    status: \"active\",\n    name: `The-Law-${Math.floor(Math.random() * 9999)}`\n}\n    \nreturn request\n.put(`/users/${user[0].id}`)\n.set(\"Authorization\", `Bearer ${process.env.TEST_TOKEN}`)\n.send(data)\n.then((res) => {\n    expect(res.body).to.deep.include(data);\n})",
+                  "err": {},
+                  "uuid": "43fbca95-1027-4c9b-9e21-5852528b95f3",
+                  "parentUUID": "5b70f4a0-2161-4a3b-a8f4-1cb339887d01",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "43fbca95-1027-4c9b-9e21-5852528b95f3"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 969,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "ba1e19e2-5034-4752-8015-f92cd87cdbbe",
+              "title": "DELETE Deleting a user",
+              "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+              "file": "/test/index.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "/users/:id",
+                  "fullTitle": "Users DELETE Deleting a user /users/:id",
+                  "timedOut": false,
+                  "duration": 957,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "return request\n.delete(`/users/${user[0].id}`)\n.set(\"Authorization\", `Bearer ${process.env.TEST_TOKEN}`)\n.then((res) => {\n    expect(res.body).to.be.eql({});\n})",
+                  "err": {},
+                  "uuid": "47bc7c67-f894-4d17-a2f7-f967198cf8d8",
+                  "parentUUID": "ba1e19e2-5034-4752-8015-f92cd87cdbbe",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "47bc7c67-f894-4d17-a2f7-f967198cf8d8"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 957,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        },
+        {
+          "uuid": "fb970de5-ff29-47db-916b-576076d4d8c5",
+          "title": "Posts",
+          "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+          "file": "/test/index.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "17b93841-2ab1-4a18-adaf-5a2e88101c94",
+              "title": "POST Requests",
+              "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+              "file": "/test/index.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [],
+              "suites": [
+                {
+                  "uuid": "25a86c81-5253-495b-aa07-bb3161ff72f1",
+                  "title": "Create Post",
+                  "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+                  "file": "/test/index.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "/posts",
+                      "fullTitle": "Posts POST Requests Create Post /posts",
+                      "timedOut": false,
+                      "duration": 973,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "const data = {\n    user_id: user[3].id,\n    title: `${faker.lorem.sentence()}`,\n    body: `${faker.lorem.paragraphs()}`\n}\nconst res = await request\n.post(\"posts\")\n.set(\"Authorization\", `Bearer ${process.env.TEST_TOKEN}`)\n.send(data)\nexpect(res.body).to.deep.include(data);",
+                      "err": {},
+                      "uuid": "7560b3a4-1a82-495e-8f89-66e60c2d371b",
+                      "parentUUID": "25a86c81-5253-495b-aa07-bb3161ff72f1",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "7560b3a4-1a82-495e-8f89-66e60c2d371b"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 973,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 5000
+                }
+              ],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "0a2077ec-f13a-48a9-af49-fef751646f89",
+              "title": "GET Requests",
+              "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+              "file": "/test/index.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [],
+              "suites": [
+                {
+                  "uuid": "79817983-96f9-47b8-90b4-ad7a5635de25",
+                  "title": "Get all posts",
+                  "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+                  "file": "/test/index.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "/posts",
+                      "fullTitle": "Posts GET Requests Get all posts /posts",
+                      "timedOut": false,
+                      "duration": 975,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "await request\n.get(\"posts\")\n.set(\"Authorization\", `Bearer ${process.env.TEST_TOKEN}`)\n.then(async(res) => {\n    expect(res.body).to.not.be.empty;\n    res.body.forEach(data => {\n        posts.push(data);\n    });\n})",
+                      "err": {},
+                      "uuid": "9d79c49a-8aaa-47be-b92a-7ff32c365a22",
+                      "parentUUID": "79817983-96f9-47b8-90b4-ad7a5635de25",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "9d79c49a-8aaa-47be-b92a-7ff32c365a22"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 975,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 5000
+                },
+                {
+                  "uuid": "6d10af5f-353b-4221-9774-04fc48770bb6",
+                  "title": "Get single post by :id",
+                  "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+                  "file": "/test/index.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "/posts/:id",
+                      "fullTitle": "Posts GET Requests Get single post by :id /posts/:id",
+                      "timedOut": false,
+                      "duration": 953,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "await request\n.get(`posts/${posts[3].id}`)\n.set(\"Authorization\", `Bearer ${process.env.TEST_TOKEN}`)\n.then(async(res) => {\n    expect(200)\n})",
+                      "err": {},
+                      "uuid": "614bc3c4-aba2-4e71-8ad1-ec1bb3402585",
+                      "parentUUID": "6d10af5f-353b-4221-9774-04fc48770bb6",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "614bc3c4-aba2-4e71-8ad1-ec1bb3402585"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 953,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 5000
+                }
+              ],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            },
+            {
+              "uuid": "d903fc9b-7340-4f33-8eb5-ee12889a7478",
+              "title": "Negative test",
+              "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+              "file": "/test/index.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [],
+              "suites": [
+                {
+                  "uuid": "e732a623-12eb-46c8-98c2-c634b482d06a",
+                  "title": "4** Errors",
+                  "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+                  "file": "/test/index.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [],
+                  "suites": [
+                    {
+                      "uuid": "8a9f6cd6-c0d0-4b8e-b257-96c3b9a76492",
+                      "title": "401",
+                      "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+                      "file": "/test/index.js",
+                      "beforeHooks": [],
+                      "afterHooks": [],
+                      "tests": [
+                        {
+                          "title": "Authentication failed",
+                          "fullTitle": "Posts Negative test 4** Errors 401 Authentication failed",
+                          "timedOut": false,
+                          "duration": 1006,
+                          "state": "passed",
+                          "speed": "slow",
+                          "pass": true,
+                          "fail": false,
+                          "pending": false,
+                          "context": null,
+                          "code": "const data = {\n    user_id: user[3].id,\n    title: `New Post Title`,\n    body: \"The Post was created successfully\"\n}\nconst res = await request\n.post(\"posts\")\n.send(data);\nexpect(res.status).to.eql(401)\nexpect(res.body.message).to.eql(\"Authentication failed\")",
+                          "err": {},
+                          "uuid": "5d1e4ba4-be9e-49e3-87d8-1922885c2bc0",
+                          "parentUUID": "8a9f6cd6-c0d0-4b8e-b257-96c3b9a76492",
+                          "isHook": false,
+                          "skipped": false
+                        }
+                      ],
+                      "suites": [],
+                      "passes": [
+                        "5d1e4ba4-be9e-49e3-87d8-1922885c2bc0"
+                      ],
+                      "failures": [],
+                      "pending": [],
+                      "skipped": [],
+                      "duration": 1006,
+                      "root": false,
+                      "rootEmpty": false,
+                      "_timeout": 5000
+                    },
+                    {
+                      "uuid": "73ba92ec-92b0-4e73-9738-01e8b0275df7",
+                      "title": "422",
+                      "fullFile": "/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js",
+                      "file": "/test/index.js",
+                      "beforeHooks": [],
+                      "afterHooks": [],
+                      "tests": [
+                        {
+                          "title": "Validation Failed",
+                          "fullTitle": "Posts Negative test 4** Errors 422 Validation Failed",
+                          "timedOut": false,
+                          "duration": 955,
+                          "state": "passed",
+                          "speed": "slow",
+                          "pass": true,
+                          "fail": false,
+                          "pending": false,
+                          "context": null,
+                          "code": "const data = {\n    user_id: user[3].id,\n    title: `New Post Title`,\n}\nconst res = await request\n.post(\"posts\")\n.set(\"Authorization\", `Bearer ${process.env.TEST_TOKEN}`)\n.send(data);\nexpect(res.status).to.eql(422)\nexpect(res.body[0].field).to.eql(\"body\")\nexpect(res.body[0].message).to.eql(\"can't be blank\")",
+                          "err": {},
+                          "uuid": "b4c76a0c-30eb-440b-a316-b183fbcf4bf0",
+                          "parentUUID": "73ba92ec-92b0-4e73-9738-01e8b0275df7",
+                          "isHook": false,
+                          "skipped": false
+                        }
+                      ],
+                      "suites": [],
+                      "passes": [
+                        "b4c76a0c-30eb-440b-a316-b183fbcf4bf0"
+                      ],
+                      "failures": [],
+                      "pending": [],
+                      "skipped": [],
+                      "duration": 955,
+                      "root": false,
+                      "rootEmpty": false,
+                      "_timeout": 5000
+                    }
+                  ],
+                  "passes": [],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 0,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 5000
+                }
+              ],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 5000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 5000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 5000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.0.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
