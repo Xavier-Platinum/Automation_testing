@@ -13,9 +13,9 @@ describe('Users', () => {
         // Creating a user
         it('/users', async() => {
             const data = {
-                email: faker.internet.email(),
-                name: faker.name.findName(),
-                gender: faker.name.gender(),
+                email: `bencher_${Math.floor(Math.random()*9999)}@nigeria.com`,
+                name: "Bencher",
+                gender: "male",
                 status: "active"
             };
             return request

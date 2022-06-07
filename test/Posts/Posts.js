@@ -15,8 +15,8 @@ describe('Posts', () => {
             it('/posts', async () => {
                 const data = {
                     user_id: user[3].id,
-                    title: faker.lorem.sentence(),
-                    body: faker.lorem.paragraphs()
+                    title: `${faker.lorem.sentence()}`,
+                    body: `${faker.lorem.paragraphs()}`
                 }
                 const res = await request
                 .post("posts")
