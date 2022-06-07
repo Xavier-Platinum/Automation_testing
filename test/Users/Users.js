@@ -1,4 +1,5 @@
 import {request} from "../../config/common.js";
+import {faker} from "@faker-js/faker";
 
 import { expect } from "chai"; // assertion library
 
@@ -12,9 +13,9 @@ describe('Users', () => {
         // Creating a user
         it('/users', async() => {
             const data = {
-                email: `bencher_${Math.floor(Math.random()*9999)}@nigeria.com`,
-                name: "Bencher",
-                gender: "male",
+                email: faker.internet.email(),
+                name: faker.name.findName(),
+                gender: faker.name.gender(),
                 status: "active"
             };
             return request
