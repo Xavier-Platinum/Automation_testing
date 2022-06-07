@@ -43,6 +43,17 @@ describe('Posts', () => {
                 })
             })
         });
+        // get single post by :id
+        describe('Get single post by :id', async() => {
+            it('/posts/:id', async () => {
+                await request
+                .get(`posts/${posts[3].id}`)
+                .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
+                .then(async(res) => {
+                    expect(200)
+                })
+            })
+        });
     });
 });
 
