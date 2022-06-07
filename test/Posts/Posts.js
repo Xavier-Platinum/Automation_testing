@@ -73,6 +73,22 @@ describe('Posts', () => {
                     expect(res.body.message).to.eql("Authentication failed")
                 })
             });
+            describe('422', () => {
+                it('Validation Failed', async () => {
+                    const data = {
+                        user_id: user[3].id,
+                        title: `New Post Title`,
+                    }
+                    const res = await request
+                    .post("posts")
+                    .set("Authorization", `Bearer ${process.env.TEST_TOKEN}`)
+                    .send(data);
+                    expect(res.status).to.eql(422)
+                    expect(res.body[0].field).to.eql("body")
+                    expect(res.body[0].message).to.eql("can't be blank")
+                })
+            });
+            
         });
     });
 });
