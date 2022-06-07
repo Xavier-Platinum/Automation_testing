@@ -55,6 +55,26 @@ describe('Posts', () => {
             })
         });
     });
+
+    // negative tests
+    describe('Negative test', () => {
+        describe('4** Errors', () => {
+            describe('401', () => {
+                it('Authentication failed', async () => {
+                    const data = {
+                        user_id: user[3].id,
+                        title: `New Post Title`,
+                        body: "The Post was created successfully"
+                    }
+                    const res = await request
+                    .post("posts")
+                    .send(data);
+                    expect(res.status).to.eql(401)
+                    expect(res.body.message).to.eql("Authentication failed")
+                })
+            });
+        });
+    });
 });
 
 

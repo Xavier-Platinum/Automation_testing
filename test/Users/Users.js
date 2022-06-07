@@ -9,7 +9,7 @@ export {user};
 describe('Users', () => {
     
     // optimizing tests
-    describe('POST', async() => {
+    describe('POST Requests', async() => {
         // Creating a user
         it('/users', async() => {
             const data = {
