@@ -4,8 +4,10 @@
   "description": "API Automation testing with supertest chai and moncha",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --timeout 5000 --reporter mochawesome",
-    "jest": "jest"
+    "test": "mocha --timeout 5000",
+    "jest": "jest",
+    "test:report": "mocha --timeout 5000 --reporter mochawesome",
+    "test:junit": "mocha test --reporter mocha-junit-reporter"
   },
   "keywords": [
     "CHAI",
@@ -25,6 +27,7 @@
   },
   "type": "module",
   "devDependencies": {
+    "mocha-junit-reporter": "^2.0.2",
     "mochawesome": "^7.1.3"
   }
 }

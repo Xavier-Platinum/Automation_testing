@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="12.0330" tests="11" failures="8">
+  <testsuite name="Root Suite" timestamp="2022-06-07T12:23:31" tests="0" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Users" timestamp="2022-06-07T12:23:31" tests="0" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="POST Requests" timestamp="2022-06-07T12:23:31" tests="1" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="2.0390" failures="1">
+    <testcase name="Users POST Requests /users" time="2.0330" classname="/users">
+      <failure message="Timeout of 2000ms exceeded. For async tests and hooks, ensure &quot;done()&quot; is called; if returning a Promise, ensure it resolves. (/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js)" type="Error"><![CDATA[Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="GET Requests" timestamp="2022-06-07T12:23:33" tests="0" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="users" timestamp="2022-06-07T12:23:33" tests="1" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="2.0020" failures="1">
+    <testcase name="Users GET Requests users /users" time="2.0000" classname="/users">
+      <failure message="Timeout of 2000ms exceeded. For async tests and hooks, ensure &quot;done()&quot; is called; if returning a Promise, ensure it resolves. (/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js)" type="Error"><![CDATA[Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Single User" timestamp="2022-06-07T12:23:35" tests="1" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="0.0030" failures="1">
+    <testcase name="Users GET Requests Single User /users/:id" time="0.0010" classname="/users/:id">
+      <failure message="Cannot read properties of undefined (reading &apos;id&apos;)" type="TypeError"><![CDATA[TypeError: Cannot read properties of undefined (reading 'id')
+    at Context.<anonymous> (file:///home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/Users/Users.js:53:39)
+    at processImmediate (node:internal/timers:466:21)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Users by params" timestamp="2022-06-07T12:23:35" tests="1" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="2.0040" failures="1">
+    <testcase name="Users GET Requests Users by params /users" time="2.0030" classname="/users">
+      <failure message="Timeout of 2000ms exceeded. For async tests and hooks, ensure &quot;done()&quot; is called; if returning a Promise, ensure it resolves. (/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js)" type="Error"><![CDATA[Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="PUT Updating a user" timestamp="2022-06-07T12:23:37" tests="1" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="0.0010" failures="1">
+    <testcase name="Users PUT Updating a user /users/:id" time="0.0010" classname="/users/:id">
+      <failure message="Cannot read properties of undefined (reading &apos;id&apos;)" type="TypeError"><![CDATA[TypeError: Cannot read properties of undefined (reading 'id')
+    at Context.<anonymous> (file:///home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/Users/Users.js:92:36)
+    at processImmediate (node:internal/timers:466:21)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="DELETE Deleting a user" timestamp="2022-06-07T12:23:37" tests="1" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="0.0010" failures="1">
+    <testcase name="Users DELETE Deleting a user /users/:id" time="0.0000" classname="/users/:id">
+      <failure message="Cannot read properties of undefined (reading &apos;id&apos;)" type="TypeError"><![CDATA[TypeError: Cannot read properties of undefined (reading 'id')
+    at Context.<anonymous> (file:///home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/Users/Users.js:106:39)
+    at processImmediate (node:internal/timers:466:21)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Posts" timestamp="2022-06-07T12:23:37" tests="0" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="POST Requests" timestamp="2022-06-07T12:23:37" tests="0" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Create Post" timestamp="2022-06-07T12:23:37" tests="1" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="0.0020" failures="1">
+    <testcase name="Posts POST Requests Create Post /posts" time="0.0000" classname="/posts">
+      <failure message="Cannot read properties of undefined (reading &apos;id&apos;)" type="TypeError"><![CDATA[TypeError: Cannot read properties of undefined (reading 'id')
+    at Context.<anonymous> (file:///home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/Posts/Posts.js:17:38)
+    at processImmediate (node:internal/timers:466:21)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="GET Requests" timestamp="2022-06-07T12:23:37" tests="0" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Get all posts" timestamp="2022-06-07T12:23:37" tests="1" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="1.2720" failures="0">
+    <testcase name="Posts GET Requests Get all posts /posts" time="1.2670" classname="/posts">
+    </testcase>
+  </testsuite>
+  <testsuite name="Get single post by :id" timestamp="2022-06-07T12:23:38" tests="1" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="1.6370" failures="0">
+    <testcase name="Posts GET Requests Get single post by :id /posts/:id" time="1.6330" classname="/posts/:id">
+    </testcase>
+  </testsuite>
+  <testsuite name="Negative test" timestamp="2022-06-07T12:23:40" tests="0" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="4** Errors" timestamp="2022-06-07T12:23:40" tests="0" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="401" timestamp="2022-06-07T12:23:40" tests="1" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="2.0030" failures="1">
+    <testcase name="Posts Negative test 4** Errors 401 Authentication failed" time="2.0020" classname="Authentication failed">
+      <failure message="Timeout of 2000ms exceeded. For async tests and hooks, ensure &quot;done()&quot; is called; if returning a Promise, ensure it resolves. (/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js)" type="Error"><![CDATA[Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure "done()" is called; if returning a Promise, ensure it resolves. (/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)]]></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="422" timestamp="2022-06-07T12:23:42" tests="1" file="/home/xavier-dev/Documents/Development/Testing_apps/API_Automation_supertesting/test/index.js" time="1.0620" failures="0">
+    <testcase name="Posts Negative test 4** Errors 422 Validation Failed" time="1.0600" classname="Validation Failed">
+    </testcase>
+  </testsuite>
+</testsuites>
